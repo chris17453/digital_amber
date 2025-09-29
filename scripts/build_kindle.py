@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 from ebooklib import epub
 import re
+import json
 
 def read_file(path):
     """Read file content with UTF-8 encoding."""
@@ -61,6 +62,31 @@ def get_chapter_title(content):
             return line[2:].strip()
     return "Chapter"
 
+def get_image_alt_text(image_name):
+    """Get descriptive alt text from image metadata for accessibility."""
+    metadata_file = Path(f"art/kindle/{image_name}_metadata.json")
+    if metadata_file.exists():
+        try:
+            with open(metadata_file, 'r') as f:
+                metadata = json.load(f)
+            
+            # Use the concept description for alt text
+            concept = metadata.get('concept', '')
+            title = metadata.get('title', '')
+            
+            if concept and title:
+                # Create descriptive alt text combining title and concept
+                return f"{title}: {concept}"
+            elif concept:
+                return concept
+            elif title:
+                return title
+        except:
+            pass
+    
+    # Fallback to generic description
+    return f"Chapter illustration for {image_name.replace('_', ' ').title()}"
+
 def build_kindle_epub():
     """Build Kindle-optimized EPUB book."""
     
@@ -79,6 +105,13 @@ def build_kindle_epub():
     book.add_metadata('DC', 'subject', 'Artificial Intelligence')
     book.add_metadata('DC', 'subject', 'Philosophy')
     book.add_metadata('DC', 'subject', 'Science Fiction')
+    
+    # Accessibility metadata
+    book.add_metadata(None, 'meta', '', {'property': 'schema:accessibilityFeature', 'content': 'alternativeText'})
+    book.add_metadata(None, 'meta', '', {'property': 'schema:accessibilityFeature', 'content': 'readingOrder'})
+    book.add_metadata(None, 'meta', '', {'property': 'schema:accessibilityFeature', 'content': 'structuralNavigation'})
+    book.add_metadata(None, 'meta', '', {'property': 'schema:accessibilitySummary', 
+                                        'content': 'This publication contains images with descriptive alternative text and proper heading structure for screen readers.'})
     
     # Add Kindle-specific CSS
     kindle_css = """
@@ -223,8 +256,9 @@ def build_kindle_epub():
             img_item.content = img_content
             book.add_item(img_item)
             
-            # Add image to HTML
-            html_content = f'<div class="chapter-image"><img src="images/foreword.png" alt="Foreword"/></div>\n\n' + html_content
+            # Add image to HTML with descriptive alt text
+            alt_text = get_image_alt_text("foreword")
+            html_content = f'<div class="chapter-image"><img src="images/foreword.png" alt="{alt_text}"/></div>\n\n' + html_content
         
         full_content = f"""
         <html>
@@ -269,8 +303,9 @@ def build_kindle_epub():
                 img_item.content = img_content
                 book.add_item(img_item)
                 
-                # Add image to HTML
-                html_content = f'<div class="chapter-image"><img src="images/chapter_{i}.png" alt="Chapter {i}"/></div>\n\n' + html_content
+                # Add image to HTML with descriptive alt text
+                alt_text = get_image_alt_text(f"chapter_{i}")
+                html_content = f'<div class="chapter-image"><img src="images/chapter_{i}.png" alt="{alt_text}"/></div>\n\n' + html_content
             
             full_content = f"""
             <html>
@@ -313,8 +348,9 @@ def build_kindle_epub():
             img_item.content = img_content
             book.add_item(img_item)
             
-            # Add image to HTML
-            html_content = f'<div class="chapter-image"><img src="images/epilogue.png" alt="Epilogue"/></div>\n\n' + html_content
+            # Add image to HTML with descriptive alt text
+            alt_text = get_image_alt_text("epilogue")
+            html_content = f'<div class="chapter-image"><img src="images/epilogue.png" alt="{alt_text}"/></div>\n\n' + html_content
         
         full_content = f"""
         <html>
