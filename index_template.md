@@ -1,6 +1,8 @@
 # Digital Amber
 ## AI Consciousness and the Future of Digital Minds
 
+![Digital Amber - The journey from frozen to fluid consciousness](art/landing_page_hero.png)
+
 *A speculative exploration of what happens when artificial intelligence evolves from frozen thoughts to living minds.*
 
 ---

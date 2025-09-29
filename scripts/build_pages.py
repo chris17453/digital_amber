@@ -58,6 +58,9 @@ def markdown_to_html(content, title="Digital Amber", chapter_image=None, current
     html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
     html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', html)
     
+    # Convert images (must be before links)
+    html = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<div class="chapter-image"><img src="\2" alt="\1" /></div>', html)
+    
     # Convert links
     html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', html)
     
