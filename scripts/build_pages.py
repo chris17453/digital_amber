@@ -308,10 +308,18 @@ def build_site():
     story_dir = Path("story")
     art_dir = Path("art") / "pages"
     
-    # Clean and create docs directory for GitHub Pages
+    # Clean docs directory but preserve CNAME file for custom domain
+    cname_backup = None
     if docs_dir.exists():
+        cname_file = docs_dir / "CNAME"
+        if cname_file.exists():
+            cname_backup = cname_file.read_text()
         shutil.rmtree(docs_dir)
     docs_dir.mkdir()
+    
+    # Restore CNAME file if it existed
+    if cname_backup:
+        (docs_dir / "CNAME").write_text(cname_backup)
     
     # Copy art images if they exist
     if art_dir.exists():
