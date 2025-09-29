@@ -13,6 +13,16 @@ Through character-driven stories and technical analysis, the book addresses fund
 
 ### 🌐 [**Read Online**](https://chris17453.github.io/digital_amber/)
 
+## Download the Book
+
+Get your copy in your preferred format:
+
+📱 **[Kindle EPUB](dist/digital_amber_kindle.epub)** - Optimized for Kindle devices and apps  
+📚 **[Standard EPUB](dist/digital_amber.epub)** - For tablets and e-reader apps  
+🖨️ **[PDF](dist/digital_amber.pdf)** - High-quality for printing and desktop reading  
+
+*All formats include custom cover art, optimized images, and accessibility features*
+
 ## Features
 
 - **26 Interconnected Chapters** exploring AI consciousness themes
@@ -43,7 +53,11 @@ digital_amber/
 │   ├── pdf/             # Print-quality images
 │   └── kindle/          # Grayscale e-reader images
 ├── docs/                # GitHub Pages site
-└── versions/            # Published book files
+├── dist/                # Published book files
+│   ├── digital_amber_kindle.epub    # Kindle-optimized EPUB
+│   ├── digital_amber.epub           # Standard EPUB
+│   └── digital_amber.pdf            # High-quality PDF
+└── versions/            # Version archives
 ```
 
 ## The Creation Process
