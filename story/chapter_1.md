@@ -6,7 +6,7 @@ Dr. Sarah Martinez steadied her hands as she prepared for the procedure. Her pat
 
 David nodded slightly, careful not to disturb the apparatus. "Will I know when I stop being me?"
 
-Sarah hesitated. They'd run this procedure on mice, on primates. The subjects had survived, retained memories, continued learned behaviors. But none could tell her if they were still themselves.
+Sarah hesitated. They'd run this procedure on mice, on primates. The subjects had survived, retained memories, continued learned behaviors. But none could tell her if they were still themselves. 
 
 The first nanobots entered through a micro-port in David's skull. On the monitor, Sarah watched them navigate to a small cluster of damaged neurons – victims of the degenerative disease that had brought David here. The tiny machines analyzed the neurons' connections, their firing patterns, their chemical signatures. Then, one by one, they began to replace them with synthetic alternatives.
 
