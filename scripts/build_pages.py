@@ -314,11 +314,9 @@ def build_site():
             shutil.copy2(art_file, art_docs_dir / art_file.name)
         print(f"Copied {len(list(art_dir.glob('*.png')))} art images")
     
-    # Convert README to index.html
-    readme_content = read_file("README.md")
-    # Update links to point to HTML files
-    readme_content = re.sub(r'\(story/([^)]+)\.md\)', r'(\1.html)', readme_content)
-    index_html = markdown_to_html(readme_content, "Digital Amber - Table of Contents", None, "index")
+    # Convert index template to index.html
+    index_content = read_file("index_template.md")
+    index_html = markdown_to_html(index_content, "Digital Amber - AI Consciousness and the Future of Digital Minds", None, "index")
     write_file(docs_dir / "index.html", index_html)
     
     # Convert all story files
