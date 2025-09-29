@@ -1,0 +1,18 @@
+{
+  "chapter_key": "chapter_13",
+  "title": "The Copyright Wars",
+  "concept": "Courtroom battle with human artist and AI on opposite sides, judge reviewing digital art displayed on screens, lawyers arguing.",
+  "format": "pages",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Courtroom battle with human artist and AI on opposite sides, judge reviewing digital art displayed on screens, lawyers arguing.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: Limited color palette like classic book illustrations - warm amber tones, muted colors, vintage sci-fi poster aesthetic\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Dramatic courtroom scene\n- Human vs AI representation\n- Digital artwork as evidence\n- Legal arguments in progress\n- Intellectual property conflict\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T09:29:14.771474",
+  "model": "black-forest-labs/flux-1.1-pro",
+  "image_url": "https://replicate.delivery/xezq/o639LmYcNw6QD91s0elFi0h356xbj29dGXgyig74z5YV3BtKA/tmp5tyd7xwh.png",
+  "aspect_ratio": "16:9",
+  "key_elements": [
+    "Dramatic courtroom scene",
+    "Human vs AI representation",
+    "Digital artwork as evidence",
+    "Legal arguments in progress",
+    "Intellectual property conflict"
+  ]
+}

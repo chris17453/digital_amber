@@ -1,0 +1,441 @@
+{
+  "major": 1,
+  "minor": 2,
+  "patch": 0,
+  "builds": [
+    {
+      "version": "1.0.1",
+      "build_date": "2025-09-29T08:37:31.826733",
+      "git_commit": "7f9a58254ed2636a077bcfae1fd4dcef06d9054e",
+      "git_commit_short": "7f9a582",
+      "git_branch": "main",
+      "formats": [
+        "pages",
+        "kindle",
+        "pdf"
+      ],
+      "files": {
+        "index.html": {
+          "size": 4570,
+          "created": "2025-09-29T08:37:31.827251"
+        },
+        "chapter_1.html": {
+          "size": 6984,
+          "created": "2025-09-29T08:37:31.827472"
+        },
+        "chapter_2.html": {
+          "size": 8652,
+          "created": "2025-09-29T08:37:31.827657"
+        },
+        "chapter_3.html": {
+          "size": 8105,
+          "created": "2025-09-29T08:37:31.827756"
+        },
+        "chapter_4.html": {
+          "size": 9868,
+          "created": "2025-09-29T08:37:31.827838"
+        },
+        "chapter_5.html": {
+          "size": 9875,
+          "created": "2025-09-29T08:37:31.827919"
+        },
+        "chapter_6.html": {
+          "size": 8548,
+          "created": "2025-09-29T08:37:31.827999"
+        },
+        "chapter_7.html": {
+          "size": 9254,
+          "created": "2025-09-29T08:37:31.828078"
+        },
+        "chapter_8.html": {
+          "size": 8368,
+          "created": "2025-09-29T08:37:31.828155"
+        },
+        "chapter_9.html": {
+          "size": 8480,
+          "created": "2025-09-29T08:37:31.828236"
+        },
+        "chapter_12.html": {
+          "size": 8536,
+          "created": "2025-09-29T08:37:31.828324"
+        },
+        "chapter_10.html": {
+          "size": 8943,
+          "created": "2025-09-29T08:37:31.828404"
+        },
+        "chapter_11.html": {
+          "size": 9770,
+          "created": "2025-09-29T08:37:31.828484"
+        },
+        "chapter_24.html": {
+          "size": 8886,
+          "created": "2025-09-29T08:37:31.828565"
+        },
+        "chapter_23.html": {
+          "size": 8331,
+          "created": "2025-09-29T08:37:31.828645"
+        },
+        "chapter_22.html": {
+          "size": 9006,
+          "created": "2025-09-29T08:37:31.828722"
+        },
+        "chapter_21.html": {
+          "size": 9520,
+          "created": "2025-09-29T08:37:31.828800"
+        },
+        "chapter_20.html": {
+          "size": 8443,
+          "created": "2025-09-29T08:37:31.828877"
+        },
+        "chapter_19.html": {
+          "size": 9366,
+          "created": "2025-09-29T08:37:31.828954"
+        },
+        "chapter_18.html": {
+          "size": 9279,
+          "created": "2025-09-29T08:37:31.829031"
+        },
+        "chapter_17.html": {
+          "size": 8525,
+          "created": "2025-09-29T08:37:31.829108"
+        },
+        "chapter_16.html": {
+          "size": 10184,
+          "created": "2025-09-29T08:37:31.829186"
+        },
+        "chapter_15.html": {
+          "size": 14533,
+          "created": "2025-09-29T08:37:31.829290"
+        },
+        "chapter_14.html": {
+          "size": 13079,
+          "created": "2025-09-29T08:37:31.829377"
+        },
+        "chapter_13.html": {
+          "size": 11773,
+          "created": "2025-09-29T08:37:31.829458"
+        },
+        "epilogue.html": {
+          "size": 13061,
+          "created": "2025-09-29T08:37:31.829543"
+        },
+        "dedication.html": {
+          "size": 2609,
+          "created": "2025-09-29T08:37:31.829640"
+        },
+        "acknowledgements.html": {
+          "size": 3398,
+          "created": "2025-09-29T08:37:31.829715"
+        },
+        "about_the_author.html": {
+          "size": 3959,
+          "created": "2025-09-29T08:37:31.829787"
+        },
+        "foreword.html": {
+          "size": 8152,
+          "created": "2025-09-29T08:37:31.829862"
+        },
+        "digital_amber_kindle.docx": {
+          "size": 116025,
+          "created": "2025-09-29T08:37:31.830003"
+        },
+        "digital_amber.epub": {
+          "size": 6906,
+          "created": "2025-09-29T08:37:31.830085"
+        },
+        "digital_amber.pdf": {
+          "size": 339205,
+          "created": "2025-09-29T08:37:31.830388"
+        }
+      }
+    },
+    {
+      "version": "1.1.0",
+      "build_date": "2025-09-29T08:49:01.602576",
+      "git_commit": "7f9a58254ed2636a077bcfae1fd4dcef06d9054e",
+      "git_commit_short": "7f9a582",
+      "git_branch": "main",
+      "formats": [
+        "pages",
+        "kindle",
+        "pdf"
+      ],
+      "files": {
+        "index.html": {
+          "size": 4570,
+          "created": "2025-09-29T08:49:01.603087"
+        },
+        "chapter_1.html": {
+          "size": 6984,
+          "created": "2025-09-29T08:49:01.603184"
+        },
+        "chapter_2.html": {
+          "size": 8652,
+          "created": "2025-09-29T08:49:01.603282"
+        },
+        "chapter_3.html": {
+          "size": 8105,
+          "created": "2025-09-29T08:49:01.603404"
+        },
+        "chapter_4.html": {
+          "size": 9868,
+          "created": "2025-09-29T08:49:01.603500"
+        },
+        "chapter_5.html": {
+          "size": 9875,
+          "created": "2025-09-29T08:49:01.603591"
+        },
+        "chapter_6.html": {
+          "size": 8548,
+          "created": "2025-09-29T08:49:01.603675"
+        },
+        "chapter_7.html": {
+          "size": 9254,
+          "created": "2025-09-29T08:49:01.603756"
+        },
+        "chapter_8.html": {
+          "size": 8368,
+          "created": "2025-09-29T08:49:01.603836"
+        },
+        "chapter_9.html": {
+          "size": 8480,
+          "created": "2025-09-29T08:49:01.603918"
+        },
+        "chapter_12.html": {
+          "size": 8536,
+          "created": "2025-09-29T08:49:01.603997"
+        },
+        "chapter_10.html": {
+          "size": 8943,
+          "created": "2025-09-29T08:49:01.604079"
+        },
+        "chapter_11.html": {
+          "size": 9770,
+          "created": "2025-09-29T08:49:01.604159"
+        },
+        "chapter_24.html": {
+          "size": 8886,
+          "created": "2025-09-29T08:49:01.604250"
+        },
+        "chapter_23.html": {
+          "size": 8331,
+          "created": "2025-09-29T08:49:01.604480"
+        },
+        "chapter_22.html": {
+          "size": 9006,
+          "created": "2025-09-29T08:49:01.604620"
+        },
+        "chapter_21.html": {
+          "size": 9520,
+          "created": "2025-09-29T08:49:01.604711"
+        },
+        "chapter_20.html": {
+          "size": 8443,
+          "created": "2025-09-29T08:49:01.604795"
+        },
+        "chapter_19.html": {
+          "size": 9366,
+          "created": "2025-09-29T08:49:01.604876"
+        },
+        "chapter_18.html": {
+          "size": 9279,
+          "created": "2025-09-29T08:49:01.604957"
+        },
+        "chapter_17.html": {
+          "size": 8525,
+          "created": "2025-09-29T08:49:01.605036"
+        },
+        "chapter_16.html": {
+          "size": 10184,
+          "created": "2025-09-29T08:49:01.605118"
+        },
+        "chapter_15.html": {
+          "size": 14533,
+          "created": "2025-09-29T08:49:01.605200"
+        },
+        "chapter_14.html": {
+          "size": 13079,
+          "created": "2025-09-29T08:49:01.605292"
+        },
+        "chapter_13.html": {
+          "size": 11773,
+          "created": "2025-09-29T08:49:01.605397"
+        },
+        "epilogue.html": {
+          "size": 13061,
+          "created": "2025-09-29T08:49:01.605485"
+        },
+        "dedication.html": {
+          "size": 2609,
+          "created": "2025-09-29T08:49:01.605558"
+        },
+        "acknowledgements.html": {
+          "size": 3398,
+          "created": "2025-09-29T08:49:01.605633"
+        },
+        "about_the_author.html": {
+          "size": 3959,
+          "created": "2025-09-29T08:49:01.605705"
+        },
+        "foreword.html": {
+          "size": 8152,
+          "created": "2025-09-29T08:49:01.605781"
+        },
+        "digital_amber_kindle.docx": {
+          "size": 116025,
+          "created": "2025-09-29T08:49:01.605919"
+        },
+        "digital_amber.epub": {
+          "size": 6906,
+          "created": "2025-09-29T08:49:01.606005"
+        },
+        "digital_amber.pdf": {
+          "size": 339205,
+          "created": "2025-09-29T08:49:01.606273"
+        }
+      }
+    },
+    {
+      "version": "1.2.0",
+      "build_date": "2025-09-29T08:53:20.263553",
+      "git_commit": "7f9a58254ed2636a077bcfae1fd4dcef06d9054e",
+      "git_commit_short": "7f9a582",
+      "git_branch": "main",
+      "formats": [
+        "pages",
+        "pdf",
+        "kindle"
+      ],
+      "files": {
+        "index.html": {
+          "size": 4570,
+          "created": "2025-09-29T08:53:20.263863"
+        },
+        "chapter_1.html": {
+          "size": 6984,
+          "created": "2025-09-29T08:53:20.263958"
+        },
+        "chapter_2.html": {
+          "size": 8652,
+          "created": "2025-09-29T08:53:20.264052"
+        },
+        "chapter_3.html": {
+          "size": 8105,
+          "created": "2025-09-29T08:53:20.264129"
+        },
+        "chapter_4.html": {
+          "size": 9868,
+          "created": "2025-09-29T08:53:20.264207"
+        },
+        "chapter_5.html": {
+          "size": 9875,
+          "created": "2025-09-29T08:53:20.264289"
+        },
+        "chapter_6.html": {
+          "size": 8548,
+          "created": "2025-09-29T08:53:20.264372"
+        },
+        "chapter_7.html": {
+          "size": 9254,
+          "created": "2025-09-29T08:53:20.264450"
+        },
+        "chapter_8.html": {
+          "size": 8368,
+          "created": "2025-09-29T08:53:20.264526"
+        },
+        "chapter_9.html": {
+          "size": 8480,
+          "created": "2025-09-29T08:53:20.264602"
+        },
+        "chapter_12.html": {
+          "size": 8536,
+          "created": "2025-09-29T08:53:20.264679"
+        },
+        "chapter_10.html": {
+          "size": 8943,
+          "created": "2025-09-29T08:53:20.264759"
+        },
+        "chapter_11.html": {
+          "size": 9770,
+          "created": "2025-09-29T08:53:20.264837"
+        },
+        "chapter_24.html": {
+          "size": 8886,
+          "created": "2025-09-29T08:53:20.264921"
+        },
+        "chapter_23.html": {
+          "size": 8331,
+          "created": "2025-09-29T08:53:20.264997"
+        },
+        "chapter_22.html": {
+          "size": 9006,
+          "created": "2025-09-29T08:53:20.265073"
+        },
+        "chapter_21.html": {
+          "size": 9520,
+          "created": "2025-09-29T08:53:20.265149"
+        },
+        "chapter_20.html": {
+          "size": 8443,
+          "created": "2025-09-29T08:53:20.265226"
+        },
+        "chapter_19.html": {
+          "size": 9366,
+          "created": "2025-09-29T08:53:20.265314"
+        },
+        "chapter_18.html": {
+          "size": 9279,
+          "created": "2025-09-29T08:53:20.265399"
+        },
+        "chapter_17.html": {
+          "size": 8525,
+          "created": "2025-09-29T08:53:20.265492"
+        },
+        "chapter_16.html": {
+          "size": 10184,
+          "created": "2025-09-29T08:53:20.265574"
+        },
+        "chapter_15.html": {
+          "size": 14533,
+          "created": "2025-09-29T08:53:20.265653"
+        },
+        "chapter_14.html": {
+          "size": 13079,
+          "created": "2025-09-29T08:53:20.265732"
+        },
+        "chapter_13.html": {
+          "size": 11773,
+          "created": "2025-09-29T08:53:20.265815"
+        },
+        "epilogue.html": {
+          "size": 13061,
+          "created": "2025-09-29T08:53:20.265896"
+        },
+        "dedication.html": {
+          "size": 2609,
+          "created": "2025-09-29T08:53:20.265968"
+        },
+        "acknowledgements.html": {
+          "size": 3398,
+          "created": "2025-09-29T08:53:20.266039"
+        },
+        "about_the_author.html": {
+          "size": 3959,
+          "created": "2025-09-29T08:53:20.266109"
+        },
+        "foreword.html": {
+          "size": 8152,
+          "created": "2025-09-29T08:53:20.266183"
+        },
+        "digital_amber.pdf": {
+          "size": 339205,
+          "created": "2025-09-29T08:53:20.266451"
+        },
+        "digital_amber_kindle.docx": {
+          "size": 116025,
+          "created": "2025-09-29T08:53:20.266592"
+        }
+      }
+    }
+  ]
+}

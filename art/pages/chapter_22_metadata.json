@@ -1,0 +1,18 @@
+{
+  "chapter_key": "chapter_22",
+  "title": "The Great Acceleration",
+  "concept": "AI research lab with screens showing exponential growth curves while researchers watch in awe and concern.",
+  "format": "pages",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: AI research lab with screens showing exponential growth curves while researchers watch in awe and concern.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: Limited color palette like classic book illustrations - warm amber tones, muted colors, vintage sci-fi poster aesthetic\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Advanced research facility\n- Exponential growth displays\n- Researcher reactions\n- Acceleration visualization\n- Technological singularity approach\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T09:32:06.903924",
+  "model": "black-forest-labs/flux-1.1-pro",
+  "image_url": "https://replicate.delivery/xezq/a0uNfBSaU8xoGiksOUfPGYWADxygjz2NhnKoD4Im8ilWxDaVA/tmpjckq1ctv.png",
+  "aspect_ratio": "16:9",
+  "key_elements": [
+    "Advanced research facility",
+    "Exponential growth displays",
+    "Researcher reactions",
+    "Acceleration visualization",
+    "Technological singularity approach"
+  ]
+}
