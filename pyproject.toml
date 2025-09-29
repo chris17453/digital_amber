@@ -1,0 +1,10 @@
+[project]
+name = "digital-amber"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mammoth>=1.11.0",
+    "python-docx>=1.2.0",
+]
