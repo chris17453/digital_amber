@@ -1,0 +1,30 @@
+{
+  "version": "1.2.2",
+  "build_date": "2025-09-29T11:06:20.892940",
+  "git_commit": "a2b66d7fdddc6d2d3b0a9911cea5fd9eebd00439",
+  "git_commit_short": "a2b66d7",
+  "git_branch": "main",
+  "formats": [
+    "pages",
+    "kindle",
+    "pdf"
+  ],
+  "files": {
+    "digital_amber_kindle.docx": {
+      "size": 116025,
+      "created": "2025-09-29T11:06:20.893473"
+    },
+    "digital_amber.epub": {
+      "size": 6905,
+      "created": "2025-09-29T11:06:20.893784"
+    },
+    "digital_amber.pdf": {
+      "size": 339202,
+      "created": "2025-09-29T11:06:20.894124"
+    },
+    "digital_amber_kindle.epub": {
+      "size": 44578533,
+      "created": "2025-09-29T11:06:20.919920"
+    }
+  }
+}

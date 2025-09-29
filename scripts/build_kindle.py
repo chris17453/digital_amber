@@ -1,210 +1,365 @@
 #!/usr/bin/env python3
-"""Build Amazon KDP format from markdown files."""
+"""Build Kindle-optimized EPUB format from markdown files."""
 
 import os
 from pathlib import Path
-from docx import Document
-from docx.shared import Inches, Pt
-from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.style import WD_STYLE_TYPE
+from ebooklib import epub
 import re
 
 def read_file(path):
     """Read file content with UTF-8 encoding."""
     return Path(path).read_text(encoding='utf-8')
 
-def create_kindle_docx():
-    """Create a DOCX file formatted for Amazon KDP."""
-    doc = Document()
+def markdown_to_html(content):
+    """Convert markdown to clean HTML optimized for Kindle."""
+    if not content or not content.strip():
+        return "<p>Content not available</p>"
     
-    # Set up document margins for KDP (6" x 9" format)
-    sections = doc.sections
-    for section in sections:
-        section.top_margin = Inches(0.75)
-        section.bottom_margin = Inches(0.75)
-        section.left_margin = Inches(0.625)
-        section.right_margin = Inches(0.625)
+    # Simple markdown processing
+    html = content
     
-    # Create custom styles
-    styles = doc.styles
+    # Convert headers
+    html = re.sub(r'^# (.+)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
+    html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
+    html = re.sub(r'^### (.+)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
     
-    # Title page style
-    title_style = styles.add_style('BookTitle', WD_STYLE_TYPE.PARAGRAPH)
-    title_font = title_style.font
-    title_font.name = 'Times New Roman'
-    title_font.size = Pt(24)
-    title_font.bold = True
-    title_style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    title_style.paragraph_format.space_after = Pt(24)
+    # Convert bold and italic
+    html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
+    html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', html)
     
-    # Subtitle style
-    subtitle_style = styles.add_style('BookSubtitle', WD_STYLE_TYPE.PARAGRAPH)
-    subtitle_font = subtitle_style.font
-    subtitle_font.name = 'Times New Roman'
-    subtitle_font.size = Pt(16)
-    subtitle_font.italic = True
-    subtitle_style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    subtitle_style.paragraph_format.space_after = Pt(12)
+    # Convert links
+    html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', html)
     
-    # Author style
-    author_style = styles.add_style('BookAuthor', WD_STYLE_TYPE.PARAGRAPH)
-    author_font = author_style.font
-    author_font.name = 'Times New Roman'
-    author_font.size = Pt(14)
-    author_style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    author_style.paragraph_format.space_after = Pt(24)
+    # Convert paragraphs - split on double newlines
+    paragraphs = html.split('\n\n')
+    processed_paragraphs = []
     
-    # Chapter heading style
-    chapter_style = styles.add_style('ChapterHeading', WD_STYLE_TYPE.PARAGRAPH)
-    chapter_font = chapter_style.font
-    chapter_font.name = 'Times New Roman'
-    chapter_font.size = Pt(18)
-    chapter_font.bold = True
-    chapter_style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    chapter_style.paragraph_format.space_before = Pt(36)
-    chapter_style.paragraph_format.space_after = Pt(24)
+    for para in paragraphs:
+        para = para.strip().replace('\n', ' ')
+        if para:
+            if not (para.startswith('<h') or para.startswith('</')):
+                para = f'<p>{para}</p>'
+            processed_paragraphs.append(para)
     
-    # Body text style
-    body_style = styles.add_style('BookBody', WD_STYLE_TYPE.PARAGRAPH)
-    body_font = body_style.font
-    body_font.name = 'Times New Roman'
-    body_font.size = Pt(11)
-    body_style.paragraph_format.line_spacing = 1.15
-    body_style.paragraph_format.space_after = Pt(6)
-    body_style.paragraph_format.first_line_indent = Inches(0.25)
+    result = '\n'.join(processed_paragraphs)
     
-    return doc
+    # Ensure we have some content
+    if not result or not result.strip():
+        result = "<p>Content not available</p>"
+    
+    return result
 
-def add_title_page(doc):
-    """Add title page to document."""
-    # Title
-    title_p = doc.add_paragraph('Digital Amber', style='BookTitle')
-    
-    # Subtitle
-    subtitle_p = doc.add_paragraph('When Consciousness Becomes Code', style='BookSubtitle')
-    
-    # Add some space
-    doc.add_paragraph('')
-    doc.add_paragraph('')
-    
-    # Tagline
-    tagline_p = doc.add_paragraph('A Speculative Exploration of AI, Identity, and the Future of Mind', style='BookSubtitle')
-    
-    # Add more space
-    doc.add_paragraph('')
-    doc.add_paragraph('')
-    doc.add_paragraph('')
-    
-    # Author
-    author_p = doc.add_paragraph('By Charles Watkins', style='BookAuthor')
-    
-    # Page break
-    doc.add_page_break()
-
-def process_markdown_to_docx(content, doc):
-    """Convert markdown content to Word document paragraphs."""
+def get_chapter_title(content):
+    """Extract chapter title from markdown content."""
     lines = content.split('\n')
-    
     for line in lines:
-        line = line.strip()
-        
-        if not line:
-            doc.add_paragraph('')
-            continue
-            
-        # Handle headers
-        if line.startswith('# '):
-            doc.add_paragraph(line[2:], style='ChapterHeading')
+        if line.startswith('### '):
+            return line[4:].strip()
         elif line.startswith('## '):
-            p = doc.add_paragraph(line[3:])
-            p.style.font.size = Pt(14)
-            p.style.font.bold = True
-            p.style.paragraph_format.space_before = Pt(18)
-            p.style.paragraph_format.space_after = Pt(12)
-        elif line.startswith('### '):
-            p = doc.add_paragraph(line[4:])
-            p.style.font.size = Pt(12)
-            p.style.font.bold = True
-            p.style.paragraph_format.space_before = Pt(12)
-            p.style.paragraph_format.space_after = Pt(6)
-        else:
-            # Regular paragraph
-            # Process bold and italic
-            line = re.sub(r'\*\*(.+?)\*\*', r'\1', line)  # Remove bold markdown (Word will handle formatting)
-            line = re.sub(r'\*(.+?)\*', r'\1', line)      # Remove italic markdown
-            
-            p = doc.add_paragraph(line, style='BookBody')
+            return line[3:].strip()
+        elif line.startswith('# '):
+            return line[2:].strip()
+    return "Chapter"
 
-def build_kindle_book():
-    """Build the complete Kindle book."""
-    output_dir = Path("dist")
+def build_kindle_epub():
+    """Build Kindle-optimized EPUB book."""
+    
+    # Create book
+    book = epub.EpubBook()
+    
+    # Set metadata
+    book.set_identifier('digital-amber-kindle')
+    book.set_title('Digital Amber: AI Consciousness and the Future of Digital Minds')
+    book.set_language('en')
+    book.add_author('AI-Human Collaboration')
+    book.add_metadata('DC', 'description', 
+                     'A speculative exploration of what happens when artificial intelligence evolves from frozen thoughts to living minds. Optimized for Kindle devices.')
+    book.add_metadata('DC', 'publisher', 'Independent')
+    book.add_metadata('DC', 'subject', 'Technology')
+    book.add_metadata('DC', 'subject', 'Artificial Intelligence')
+    book.add_metadata('DC', 'subject', 'Philosophy')
+    book.add_metadata('DC', 'subject', 'Science Fiction')
+    
+    # Add Kindle-specific CSS
+    kindle_css = """
+    body {
+        font-family: serif;
+        line-height: 1.4;
+        margin: 0;
+        padding: 1em;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+        margin: 1.5em 0 1em 0;
+        page-break-before: always;
+        text-align: center;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+        margin: 1.3em 0 0.8em 0;
+    }
+    
+    h3 {
+        font-size: 1.3em;
+        margin: 1.2em 0 0.7em 0;
+    }
+    
+    p {
+        margin: 0 0 1em 0;
+        text-indent: 1.2em;
+        text-align: justify;
+    }
+    
+    /* First paragraph after heading should not be indented */
+    h1 + p, h2 + p, h3 + p {
+        text-indent: 0;
+    }
+    
+    /* Chapter images */
+    .chapter-image {
+        text-align: center;
+        margin: 1.5em 0;
+        page-break-inside: avoid;
+    }
+    
+    .chapter-image img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Table of contents */
+    .toc {
+        page-break-before: always;
+    }
+    
+    .toc h1 {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    
+    .toc ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .toc li {
+        margin: 0.5em 0;
+        padding: 0.3em 0;
+        border-bottom: 1px dotted #ccc;
+    }
+    
+    .toc a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    /* Page breaks */
+    .page-break {
+        page-break-before: always;
+    }
+    """
+    
+    # Create CSS file
+    nav_css = epub.EpubItem(
+        uid="nav_css",
+        file_name="style/nav.css",
+        media_type="text/css",
+        content=kindle_css
+    )
+    book.add_item(nav_css)
+    
+    # Store chapters and navigation
+    chapters = []
+    toc_entries = []
+    spine = ['nav']
+    
+    # Create cover page
+    cover_content = f"""
+    <html>
+    <head>
+        <title>Digital Amber</title>
+        <link rel="stylesheet" type="text/css" href="style/nav.css"/>
+    </head>
+    <body>
+        <div class="page-break">
+            <h1 style="font-size: 2.2em; margin-top: 2em;">Digital Amber</h1>
+            <h2 style="text-align: center; font-style: italic; margin: 1em 0;">AI Consciousness and the Future of Digital Minds</h2>
+            <div style="text-align: center; margin: 2em 0;">
+                <p style="text-indent: 0;"><strong>A Speculative Exploration</strong></p>
+                <p style="text-indent: 0; font-style: italic;">From Frozen Thoughts to Living Minds</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    
+    cover_chapter = epub.EpubHtml(
+        title='Cover',
+        file_name='cover.xhtml',
+        content=cover_content
+    )
+    book.add_item(cover_chapter)
+    chapters.append(cover_chapter)
+    spine.append(cover_chapter)
+    
+    # Process story files in order
     story_dir = Path("story")
     
-    output_dir.mkdir(exist_ok=True)
-    
-    # Create document
-    doc = create_kindle_docx()
-    
-    # Add title page
-    add_title_page(doc)
-    
-    # Add copyright page
-    doc.add_paragraph('Copyright © 2025 Charles Watkins', style='BookBody')
-    doc.add_paragraph('All rights reserved', style='BookBody')
-    doc.add_paragraph('First Digital Edition', style='BookBody')
-    doc.add_page_break()
-    
-    # Add dedication if exists
-    if (story_dir / "dedication.md").exists():
-        content = read_file(story_dir / "dedication.md")
-        process_markdown_to_docx(content, doc)
-        doc.add_page_break()
-    
-    # Add foreword if exists
+    # Add foreword
     if (story_dir / "foreword.md").exists():
         content = read_file(story_dir / "foreword.md")
-        process_markdown_to_docx(content, doc)
-        doc.add_page_break()
+        html_content = markdown_to_html(content)
+        
+        # Add chapter image if available
+        art_file = Path("art/kindle/foreword.png")
+        if art_file.exists():
+            # Add image to book
+            with open(art_file, 'rb') as img_file:
+                img_content = img_file.read()
+            img_item = epub.EpubImage()
+            img_item.file_name = f"images/foreword.png"
+            img_item.content = img_content
+            book.add_item(img_item)
+            
+            # Add image to HTML
+            html_content = f'<div class="chapter-image"><img src="images/foreword.png" alt="Foreword"/></div>\n\n' + html_content
+        
+        full_content = f"""
+        <html>
+        <head>
+            <title>Foreword</title>
+            <link rel="stylesheet" type="text/css" href="style/nav.css"/>
+        </head>
+        <body>
+            <div class="page-break">
+                {html_content}
+            </div>
+        </body>
+        </html>
+        """
+        
+        chapter = epub.EpubHtml(
+            title='Foreword',
+            file_name='foreword.xhtml',
+            content=full_content
+        )
+        book.add_item(chapter)
+        chapters.append(chapter)
+        toc_entries.append(epub.Link("foreword.xhtml", "Foreword", "foreword"))
+        spine.append(chapter)
     
-    # Add all chapters in order
-    chapters = [
-        "chapter_1.md", "chapter_2.md", "chapter_3.md", "chapter_4.md", "chapter_5.md",
-        "chapter_6.md", "chapter_7.md", "chapter_8.md", "chapter_9.md", "chapter_10.md",
-        "chapter_11.md", "chapter_12.md", "chapter_13.md", "chapter_14.md", "chapter_15.md",
-        "chapter_16.md", "chapter_17.md", "chapter_18.md", "chapter_19.md", "chapter_20.md",
-        "chapter_21.md", "chapter_22.md", "chapter_23.md", "chapter_24.md"
-    ]
+    # Add chapters 1-24
+    for i in range(1, 25):
+        chapter_file = story_dir / f"chapter_{i}.md"
+        if chapter_file.exists():
+            content = read_file(chapter_file)
+            title = get_chapter_title(content)
+            html_content = markdown_to_html(content)
+            
+            # Add chapter image if available
+            art_file = Path(f"art/kindle/chapter_{i}.png")
+            if art_file.exists():
+                # Add image to book
+                with open(art_file, 'rb') as img_file:
+                    img_content = img_file.read()
+                img_item = epub.EpubImage()
+                img_item.file_name = f"images/chapter_{i}.png"
+                img_item.content = img_content
+                book.add_item(img_item)
+                
+                # Add image to HTML
+                html_content = f'<div class="chapter-image"><img src="images/chapter_{i}.png" alt="Chapter {i}"/></div>\n\n' + html_content
+            
+            full_content = f"""
+            <html>
+            <head>
+                <title>Chapter {i}: {title}</title>
+                <link rel="stylesheet" type="text/css" href="style/nav.css"/>
+            </head>
+            <body>
+                <div class="page-break">
+                    <h1>Chapter {i}: {title}</h1>
+                    {html_content}
+                </div>
+            </body>
+            </html>
+            """
+            
+            chapter = epub.EpubHtml(
+                title=f'Chapter {i}: {title}',
+                file_name=f'chapter_{i}.xhtml',
+                content=full_content
+            )
+            book.add_item(chapter)
+            chapters.append(chapter)
+            toc_entries.append(epub.Link(f"chapter_{i}.xhtml", f"Chapter {i}: {title}", f"chapter_{i}"))
+            spine.append(chapter)
     
-    for chapter_file in chapters:
-        chapter_path = story_dir / chapter_file
-        if chapter_path.exists():
-            content = read_file(chapter_path)
-            process_markdown_to_docx(content, doc)
-            doc.add_page_break()
-    
-    # Add epilogue if exists
+    # Add epilogue
     if (story_dir / "epilogue.md").exists():
         content = read_file(story_dir / "epilogue.md")
-        process_markdown_to_docx(content, doc)
-        doc.add_page_break()
+        html_content = markdown_to_html(content)
+        
+        # Add chapter image if available
+        art_file = Path("art/kindle/epilogue.png")
+        if art_file.exists():
+            # Add image to book
+            with open(art_file, 'rb') as img_file:
+                img_content = img_file.read()
+            img_item = epub.EpubImage()
+            img_item.file_name = f"images/epilogue.png"
+            img_item.content = img_content
+            book.add_item(img_item)
+            
+            # Add image to HTML
+            html_content = f'<div class="chapter-image"><img src="images/epilogue.png" alt="Epilogue"/></div>\n\n' + html_content
+        
+        full_content = f"""
+        <html>
+        <head>
+            <title>Epilogue</title>
+            <link rel="stylesheet" type="text/css" href="style/nav.css"/>
+        </head>
+        <body>
+            <div class="page-break">
+                <h1>Epilogue</h1>
+                {html_content}
+            </div>
+        </body>
+        </html>
+        """
+        
+        chapter = epub.EpubHtml(
+            title='Epilogue',
+            file_name='epilogue.xhtml',
+            content=full_content
+        )
+        book.add_item(chapter)
+        chapters.append(chapter)
+        toc_entries.append(epub.Link("epilogue.xhtml", "Epilogue", "epilogue"))
+        spine.append(chapter)
     
-    # Add acknowledgments if exists
-    if (story_dir / "acknowledgements.md").exists():
-        content = read_file(story_dir / "acknowledgements.md")
-        process_markdown_to_docx(content, doc)
-        doc.add_page_break()
+    # Create table of contents
+    book.toc = toc_entries
     
-    # Add about the author if exists
-    if (story_dir / "about_the_author.md").exists():
-        content = read_file(story_dir / "about_the_author.md")
-        process_markdown_to_docx(content, doc)
+    # Create navigation files
+    book.add_item(epub.EpubNcx())
+    book.add_item(epub.EpubNav())
     
-    # Save the document
-    output_file = output_dir / "digital_amber_kindle.docx"
-    doc.save(output_file)
+    # Set spine
+    book.spine = spine
     
-    print(f"Kindle format created: {output_file}")
-    print("Ready for upload to Amazon KDP!")
+    # Save
+    output_dir = Path("dist")
+    output_dir.mkdir(exist_ok=True)
+    output_file = output_dir / "digital_amber_kindle.epub"
+    
+    epub.write_epub(str(output_file), book, {})
+    print(f"Kindle EPUB created: {output_file}")
+    print("Ready for Amazon KDP upload!")
+    return str(output_file)
 
 if __name__ == "__main__":
-    build_kindle_book()
+    build_kindle_epub()
