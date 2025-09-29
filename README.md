@@ -138,7 +138,7 @@ The project demonstrates how modern AI tools can enhance rather than replace hum
 ## Screenshots
 
 ### Web Experience
-![Digital Amber Website](docs/art/foreword.png)
+![Digital Amber Website](docs/art/foreword.jpg)
 *Professional book layout with chapter navigation and conceptual artwork*
 
 ### Conceptual Artwork
