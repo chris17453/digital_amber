@@ -20,6 +20,10 @@ def create_chapter_nav():
     story_dir = Path("story")
     nav_items = []
     
+    # Add home link
+    nav_items.append('<li><a href="index.html">📖 Home</a></li>')
+    nav_items.append('<li style="border-bottom: 2px solid #FFC000; margin-bottom: 0.5rem;"></li>')
+    
     # Add foreword
     if (story_dir / "foreword.md").exists():
         nav_items.append('<li><a href="foreword.html">Foreword</a></li>')
