@@ -345,9 +345,17 @@ def build_site():
         
         title = f"Digital Amber - {chapter_title}"
         
-        # Check for corresponding art image
-        art_file = art_dir / f"{md_file.stem}.png"
-        chapter_image = f"art/{md_file.stem}.png" if art_file.exists() else None
+        # Check for corresponding art image (use optimized JPEG if available)
+        optimized_art_dir = Path("art/pages_optimized")
+        optimized_art_file = optimized_art_dir / f"{md_file.stem}.jpg"
+        original_art_file = art_dir / f"{md_file.stem}.png"
+        
+        if optimized_art_file.exists():
+            chapter_image = f"art/{md_file.stem}.jpg"
+        elif original_art_file.exists():
+            chapter_image = f"art/{md_file.stem}.png"
+        else:
+            chapter_image = None
         
         html_content = markdown_to_html(content, title, chapter_image, md_file.stem)
         write_file(docs_dir / f"{md_file.stem}.html", html_content)
