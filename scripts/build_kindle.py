@@ -245,20 +245,20 @@ def build_kindle_epub():
         content = read_file(story_dir / "foreword.md")
         html_content = markdown_to_html(content)
         
-        # Add chapter image if available
-        art_file = Path("art/kindle/foreword.png")
+        # Add chapter image if available (use optimized version)
+        art_file = Path("art/kindle_optimized/foreword.jpg")
         if art_file.exists():
             # Add image to book
             with open(art_file, 'rb') as img_file:
                 img_content = img_file.read()
             img_item = epub.EpubImage()
-            img_item.file_name = f"images/foreword.png"
+            img_item.file_name = f"images/foreword.jpg"
             img_item.content = img_content
             book.add_item(img_item)
             
             # Add image to HTML with descriptive alt text
             alt_text = get_image_alt_text("foreword")
-            html_content = f'<div class="chapter-image"><img src="images/foreword.png" alt="{alt_text}"/></div>\n\n' + html_content
+            html_content = f'<div class="chapter-image"><img src="images/foreword.jpg" alt="{alt_text}"/></div>\n\n' + html_content
         
         full_content = f"""
         <html>
@@ -292,20 +292,20 @@ def build_kindle_epub():
             title = get_chapter_title(content)
             html_content = markdown_to_html(content)
             
-            # Add chapter image if available
-            art_file = Path(f"art/kindle/chapter_{i}.png")
+            # Add chapter image if available (use optimized version)
+            art_file = Path(f"art/kindle_optimized/chapter_{i}.jpg")
             if art_file.exists():
                 # Add image to book
                 with open(art_file, 'rb') as img_file:
                     img_content = img_file.read()
                 img_item = epub.EpubImage()
-                img_item.file_name = f"images/chapter_{i}.png"
+                img_item.file_name = f"images/chapter_{i}.jpg"
                 img_item.content = img_content
                 book.add_item(img_item)
                 
                 # Add image to HTML with descriptive alt text
                 alt_text = get_image_alt_text(f"chapter_{i}")
-                html_content = f'<div class="chapter-image"><img src="images/chapter_{i}.png" alt="{alt_text}"/></div>\n\n' + html_content
+                html_content = f'<div class="chapter-image"><img src="images/chapter_{i}.jpg" alt="{alt_text}"/></div>\n\n' + html_content
             
             full_content = f"""
             <html>
@@ -337,20 +337,20 @@ def build_kindle_epub():
         content = read_file(story_dir / "epilogue.md")
         html_content = markdown_to_html(content)
         
-        # Add chapter image if available
-        art_file = Path("art/kindle/epilogue.png")
+        # Add chapter image if available (use optimized version)
+        art_file = Path("art/kindle_optimized/epilogue.jpg")
         if art_file.exists():
             # Add image to book
             with open(art_file, 'rb') as img_file:
                 img_content = img_file.read()
             img_item = epub.EpubImage()
-            img_item.file_name = f"images/epilogue.png"
+            img_item.file_name = f"images/epilogue.jpg"
             img_item.content = img_content
             book.add_item(img_item)
             
             # Add image to HTML with descriptive alt text
             alt_text = get_image_alt_text("epilogue")
-            html_content = f'<div class="chapter-image"><img src="images/epilogue.png" alt="{alt_text}"/></div>\n\n' + html_content
+            html_content = f'<div class="chapter-image"><img src="images/epilogue.jpg" alt="{alt_text}"/></div>\n\n' + html_content
         
         full_content = f"""
         <html>
