@@ -1,7 +1,7 @@
 {
   "major": 1,
   "minor": 2,
-  "patch": 0,
+  "patch": 1,
   "builds": [
     {
       "version": "1.0.1",
@@ -434,6 +434,32 @@
         "digital_amber_kindle.docx": {
           "size": 116025,
           "created": "2025-09-29T08:53:20.266592"
+        }
+      }
+    },
+    {
+      "version": "1.2.1",
+      "build_date": "2025-09-29T10:47:54.255581",
+      "git_commit": "4326514e0001cf9b24f1c3d1a9295153ae5870b8",
+      "git_commit_short": "4326514",
+      "git_branch": "main",
+      "formats": [
+        "pages",
+        "kindle",
+        "pdf"
+      ],
+      "files": {
+        "digital_amber_kindle.docx": {
+          "size": 116025,
+          "created": "2025-09-29T10:47:54.256220"
+        },
+        "digital_amber.epub": {
+          "size": 6906,
+          "created": "2025-09-29T10:47:54.256517"
+        },
+        "digital_amber.pdf": {
+          "size": 339202,
+          "created": "2025-09-29T10:47:54.257056"
         }
       }
     }

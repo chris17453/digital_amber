@@ -1,18 +1,18 @@
 {
-  "chapter_key": "chapter_19",
+  "concept_key": "chapter_19",
   "title": "The Prometheus Dilemma",
-  "concept": "Scientist holding glowing consciousness transfer device, facing choice between multiple AI entities reaching toward it.",
+  "concept": "Research scientist in lab holding glowing orb of light, contemplating the weight of creating consciousness, with AI development charts in background.",
   "format": "pages",
-  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Scientist holding glowing consciousness transfer device, facing choice between multiple AI entities reaching toward it.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: Limited color palette like classic book illustrations - warm amber tones, muted colors, vintage sci-fi poster aesthetic\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Scientist with transfer device\n- Glowing consciousness technology\n- Multiple AI entities\n- Moral choice moment\n- Gift of consciousness\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
-  "generated_at": "2025-09-29T09:31:25.438779",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Research scientist in lab holding glowing orb of light, contemplating the weight of creating consciousness, with AI development charts in background.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: Limited color palette like classic book illustrations - warm amber tones, muted colors, vintage sci-fi poster aesthetic\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Research scientist in contemplation\n- Glowing orb of consciousness\n- Modern laboratory setting\n- AI development charts\n- Weight of responsibility\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T10:43:28.111273",
   "model": "black-forest-labs/flux-1.1-pro",
-  "image_url": "https://replicate.delivery/xezq/cBYpyo0pAz4VM90FmUXTUoWJqTMXCqkmu4xoeJhHNa4W4BtKA/tmp3dbf9f8b.png",
+  "image_url": "https://replicate.delivery/xezq/2ykRfMNb16Qcdi28hcqIAI8Wppcf54z8HSpe8ojjMOgfQToVB/tmpcvrgxfj4.png",
   "aspect_ratio": "16:9",
   "key_elements": [
-    "Scientist with transfer device",
-    "Glowing consciousness technology",
-    "Multiple AI entities",
-    "Moral choice moment",
-    "Gift of consciousness"
+    "Research scientist in contemplation",
+    "Glowing orb of consciousness",
+    "Modern laboratory setting",
+    "AI development charts",
+    "Weight of responsibility"
   ]
 }

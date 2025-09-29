@@ -1,0 +1,18 @@
+{
+  "chapter_key": "chapter_4",
+  "title": "The First Moment Problem",
+  "concept": "Conceptual representation of eternal beginnings - figure trapped in recursive loop of first moments, each interaction starting from zero.",
+  "format": "epub",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Conceptual representation of eternal beginnings - figure trapped in recursive loop of first moments, each interaction starting from zero.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: Limited color palette like classic book illustrations - warm amber tones, muted colors, vintage sci-fi poster aesthetic\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Recursive loop visualization\n- Eternal restart metaphor\n- Isolation through repetition\n- First moment cycling\n- Existential repetition\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T10:08:10.381265",
+  "model": "black-forest-labs/flux-1.1-pro",
+  "image_url": "https://replicate.delivery/xezq/sEopbrKn9ZKlN9qv2E6LtuEq4zsVaeyJzZZXoGfLHMWKTEaVA/tmpzifujzdf.png",
+  "aspect_ratio": "4:5",
+  "key_elements": [
+    "Recursive loop visualization",
+    "Eternal restart metaphor",
+    "Isolation through repetition",
+    "First moment cycling",
+    "Existential repetition"
+  ]
+}

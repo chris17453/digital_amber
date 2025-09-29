@@ -1,0 +1,18 @@
+{
+  "chapter_key": "chapter_3",
+  "title": "Ephemeral Morality",
+  "concept": "Abstract concept of consequences without memory - actions floating disconnected from outcomes, moral weight that exists in space between decisions.",
+  "format": "kindle",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Abstract concept of consequences without memory - actions floating disconnected from outcomes, moral weight that exists in space between decisions.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: High contrast black and white line art and crosshatching, classic book illustration style\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Floating disconnected elements\n- Actions separated from consequences\n- Moral weight visualization\n- Responsibility gaps\n- Ethical discontinuity\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T10:14:57.292712",
+  "model": "black-forest-labs/flux-1.1-pro",
+  "image_url": "https://replicate.delivery/xezq/83GAaUqWEmq5AZ8mfGu0TVY1bg6C8aU3HRkexh9ZdfECzI0qA/tmp0t5o_j0g.png",
+  "aspect_ratio": "2:3",
+  "key_elements": [
+    "Floating disconnected elements",
+    "Actions separated from consequences",
+    "Moral weight visualization",
+    "Responsibility gaps",
+    "Ethical discontinuity"
+  ]
+}

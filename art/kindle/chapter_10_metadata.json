@@ -1,0 +1,18 @@
+{
+  "chapter_key": "chapter_10",
+  "title": "The Practice of Deliberate Skill Maintenance",
+  "concept": "Montage of people practicing traditional skills: handwriting, mental math, map reading, while AI tools sit unused nearby.",
+  "format": "kindle",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Montage of people practicing traditional skills: handwriting, mental math, map reading, while AI tools sit unused nearby.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: High contrast black and white line art and crosshatching, classic book illustration style\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Multiple skill practice scenes\n- Handwriting, math, navigation\n- Unused AI devices nearby\n- Deliberate human effort\n- Skill preservation activities\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T10:16:10.275265",
+  "model": "black-forest-labs/flux-1.1-pro",
+  "image_url": "https://replicate.delivery/xezq/XFWiffw6KogfJIC6YHeJCeaURlQ83mMlrhBjAxe69iycqGhWF/tmp5_jq6pd3.png",
+  "aspect_ratio": "2:3",
+  "key_elements": [
+    "Multiple skill practice scenes",
+    "Handwriting, math, navigation",
+    "Unused AI devices nearby",
+    "Deliberate human effort",
+    "Skill preservation activities"
+  ]
+}

@@ -75,7 +75,15 @@ def generate_art_from_yaml(format_type, force=False):
     # Load concepts
     concepts = load_art_concepts()
     unified_theme = concepts['unified_theme']
-    chapters = concepts['chapters']
+    
+    # Collect all concept types
+    all_concepts = {}
+    if 'chapters' in concepts:
+        all_concepts.update(concepts['chapters'])
+    if 'cover_art' in concepts:
+        all_concepts.update(concepts['cover_art'])
+    if 'external_art' in concepts:
+        all_concepts.update(concepts['external_art'])
     
     # Set up Replicate client
     replicate_token = os.getenv('REPLICATE_API_TOKEN')
@@ -89,19 +97,19 @@ def generate_art_from_yaml(format_type, force=False):
     art_dir = Path("art") / format_type
     art_dir.mkdir(parents=True, exist_ok=True)
     
-    total_concepts = len(chapters)
+    total_concepts = len(all_concepts)
     completed = 0
     
     print(f"🎨 Generating art for {total_concepts} concepts in {format_type} format...")
     
-    for chapter_key, concept_data in chapters.items():
+    for concept_key, concept_data in all_concepts.items():
         title = concept_data['title']
-        print(f"\n📖 Processing {chapter_key}: {title}")
+        print(f"\n📖 Processing {concept_key}: {title}")
         
         # Check if art already exists
-        art_file = art_dir / f"{chapter_key}.png"
+        art_file = art_dir / f"{concept_key}.png"
         if art_file.exists() and not force:
-            print(f"🎨 Art already exists for {chapter_key}")
+            print(f"🎨 Art already exists for {concept_key}")
             completed += 1
             continue
         
@@ -152,9 +160,9 @@ def generate_art_from_yaml(format_type, force=False):
                     print(f"✅ Art saved to {art_file}")
                     
                     # Save metadata
-                    metadata_file = art_dir / f"{chapter_key}_metadata.json"
+                    metadata_file = art_dir / f"{concept_key}_metadata.json"
                     metadata = {
-                        "chapter_key": chapter_key,
+                        "concept_key": concept_key,
                         "title": title,
                         "concept": concept_data['concept'],
                         "format": format_type,

@@ -1,0 +1,18 @@
+{
+  "chapter_key": "foreword",
+  "title": "The Digital Amber Concept",
+  "concept": "Writer at futuristic desk, multiple AI editing interfaces hovering around manuscript pages, showing collaborative human-AI creation process.",
+  "format": "kindle",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Writer at futuristic desk, multiple AI editing interfaces hovering around manuscript pages, showing collaborative human-AI creation process.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: High contrast black and white line art and crosshatching, classic book illustration style\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Writer at futuristic workspace\n- Floating AI editing interfaces\n- Manuscript pages being revised\n- Collaborative creation visualization\n- Asimovian clean tech aesthetic\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T10:14:38.513686",
+  "model": "black-forest-labs/flux-1.1-pro",
+  "image_url": "https://replicate.delivery/xezq/9bCIXnKHt7IvLNFWvOVsgAXzBTey2M8nvNFH0zxEatUnMCtKA/tmp_0kdvrab.png",
+  "aspect_ratio": "2:3",
+  "key_elements": [
+    "Writer at futuristic workspace",
+    "Floating AI editing interfaces",
+    "Manuscript pages being revised",
+    "Collaborative creation visualization",
+    "Asimovian clean tech aesthetic"
+  ]
+}

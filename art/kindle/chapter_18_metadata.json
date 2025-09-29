@@ -1,0 +1,18 @@
+{
+  "chapter_key": "chapter_18",
+  "title": "Hybrid Lives",
+  "concept": "ALS patient in hospital bed wearing neural crown, while his healthy avatar appears on multiple screens living digital life.",
+  "format": "kindle",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: ALS patient in hospital bed wearing neural crown, while his healthy avatar appears on multiple screens living digital life.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: High contrast black and white line art and crosshatching, classic book illustration style\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Hospital patient with ALS\n- Neural interface technology\n- Healthy digital avatar\n- Multiple screen displays\n- Life transition visualization\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T10:17:01.624091",
+  "model": "black-forest-labs/flux-1.1-pro",
+  "image_url": "https://replicate.delivery/xezq/70njcBzYXiIxCBT3f2dOrGdGpS44KJ9fTDhKfQrvwLz72I0qA/tmp6pur7er1.png",
+  "aspect_ratio": "2:3",
+  "key_elements": [
+    "Hospital patient with ALS",
+    "Neural interface technology",
+    "Healthy digital avatar",
+    "Multiple screen displays",
+    "Life transition visualization"
+  ]
+}
