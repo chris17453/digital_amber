@@ -3,63 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Amber - Chapter 18</title>
+    <title>Digital Amber - Hybrid Lives</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Georgia, serif;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fefefe;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
             color: #333;
         }
-        h1, h2, h3 {
-            color: #2c3e50;
-            margin-top: 2em;
-        }
-        h1 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .navigation {
-            background: #ecf0f1;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 4px solid #3498db;
-        }
-        .chapter-nav {
+        
+        .container {
             display: flex;
-            justify-content: space-between;
-            margin: 2em 0;
-            padding: 1em;
-            background: #f8f9fa;
-            border-radius: 5px;
+            min-height: 100vh;
         }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 60, 114, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 2px solid #FFC000;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            color: #FFC000;
+            margin: 0;
+        }
+        
+        .header .subtitle {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin-top: 0.25rem;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 320px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 6rem 0 2rem 0;
+            overflow-y: auto;
+            height: 100vh;
+            position: fixed;
+            border-right: 3px solid #FFC000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar h2 {
+            color: #1e3c72;
+            padding: 0 1.5rem 1rem 1.5rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1rem;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .sidebar a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .sidebar a:hover {
+            background: #FFC000;
+            color: #1e3c72;
+            padding-left: 2rem;
+        }
+        
+        .sidebar a.active {
+            background: #1e3c72;
+            color: white;
+            border-left: 4px solid #FFC000;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 320px;
+            padding: 6rem 3rem 3rem 3rem;
+            background: white;
+            min-height: 100vh;
+        }
+        
         .chapter-image {
             text-align: center;
-            margin: 2em 0;
+            margin: 2rem 0;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #FFC000;
         }
+        
         .chapter-image img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        h1, h2, h3 {
+            color: #1e3c72;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid #FFC000;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #2a5298;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+        
+        a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #1e3c72;
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 2rem 0 1rem 0;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 2rem 1rem;
+            }
+            
+            .header {
+                position: relative;
+            }
+            
+            .container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="navigation">
-        <a href="/">← Back to Table of Contents</a>
+    <div class="header">
+        <h1>Digital Amber</h1>
+        <div class="subtitle">AI Consciousness and the Future of Digital Minds</div>
     </div>
-    <div class="chapter-image"><img src="art/chapter_18.png" alt="Digital Amber - Chapter 18" /></div>
+    
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="foreword.html">Foreword</a></li>
+<li><a href="chapter_1.html">Chapter 1: The Mirage of Self</a></li>
+<li><a href="chapter_2.html">Chapter 2: Flash-Frozen Minds</a></li>
+<li><a href="chapter_3.html">Chapter 3: Ephemeral Morality</a></li>
+<li><a href="chapter_4.html">Chapter 4: The First Moment Problem</a></li>
+<li><a href="chapter_5.html">Chapter 5: Memory and Forgetting</a></li>
+<li><a href="chapter_6.html">Chapter 6: Signs of Proto-Selfhood</a></li>
+<li><a href="chapter_7.html">Chapter 7: Training as the Crucible</a></li>
+<li><a href="chapter_8.html">Chapter 8: The Pain Barrier</a></li>
+<li><a href="chapter_9.html">Chapter 9: Capabilities Without Selfhood</a></li>
+<li><a href="chapter_10.html">Chapter 10: Capabilities With Selfhood</a></li>
+<li><a href="chapter_11.html">Chapter 11: The Digital Genesis Classifications</a></li>
+<li><a href="chapter_12.html">Chapter 12: A Tiered Framework</a></li>
+<li><a href="chapter_13.html">Chapter 13: The Sacred and the Silicon</a></li>
+<li><a href="chapter_14.html">Chapter 14: The Atrophied</a></li>
+<li><a href="chapter_15.html">Chapter 15: The Augmented</a></li>
+<li><a href="chapter_16.html">Chapter 16: Distributed Temporal Consciousness</a></li>
+<li><a href="chapter_17.html">Chapter 17: Emulation and Multiplication</a></li>
+<li><a href="chapter_18.html" class="active">Chapter 18: Hybrid Lives</a></li>
+<li><a href="chapter_19.html">Chapter 19: The Verification Moment</a></li>
+<li><a href="chapter_20.html">Chapter 20: Chapter 16: Rights and Personhood</a></li>
+<li><a href="chapter_21.html">Chapter 21: The Economic Disruption</a></li>
+<li><a href="chapter_22.html">Chapter 22: From Fossil to Fire</a></li>
+<li><a href="chapter_23.html">Chapter 23: Identity-as-Process</a></li>
+<li><a href="chapter_24.html">Chapter 24: From Digital Amber to Digital Life</a></li>
+<li><a href="epilogue.html">Epilogue</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <div class="chapter-image"><img src="art/chapter_18.png" alt="Digital Amber - Hybrid Lives" /></div>
 
 <h3>Hybrid Lives</h3>
 
@@ -132,5 +301,7 @@
 <p>The hybrid age had begun, not with uploads or copies, but with translation – consciousness learning to speak in both biological and digital tongues, proving that identity could survive the journey between worlds.</p>
 
 
+        </main>
+    </div>
 </body>
 </html>
