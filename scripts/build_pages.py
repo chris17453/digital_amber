@@ -311,10 +311,19 @@ def build_site():
     
     # Copy art images if they exist
     if art_dir.exists():
+        # Use optimized images for web
+        optimized_art_dir = Path("art/pages_optimized")
         art_docs_dir = docs_dir / "art"
         art_docs_dir.mkdir()
-        for art_file in art_dir.glob("*.png"):
-            shutil.copy2(art_file, art_docs_dir / art_file.name)
+        
+        if optimized_art_dir.exists():
+            # Copy optimized JPEG images
+            for art_file in optimized_art_dir.glob("*.jpg"):
+                shutil.copy2(art_file, art_docs_dir / art_file.name)
+        else:
+            # Fallback to original PNG images
+            for art_file in art_dir.glob("*.png"):
+                shutil.copy2(art_file, art_docs_dir / art_file.name)
         print(f"Copied {len(list(art_dir.glob('*.png')))} art images")
     
     # Convert index template to index.html

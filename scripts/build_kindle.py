@@ -153,13 +153,35 @@ def build_kindle_epub():
     /* Chapter images */
     .chapter-image {
         text-align: center;
-        margin: 1.5em 0;
+        margin: 1.5em auto;
         page-break-inside: avoid;
+        display: block;
+        width: 100%;
     }
     
     .chapter-image img {
-        max-width: 100%;
+        max-width: 90%;
         height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Cover image specific styling */
+    .cover-image {
+        text-align: center;
+        margin: 2em auto;
+        page-break-inside: avoid;
+        display: block;
+        width: 100%;
+    }
+    
+    .cover-image img {
+        max-width: 80%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
     }
     
     /* Table of contents */
@@ -208,6 +230,22 @@ def build_kindle_epub():
     toc_entries = []
     spine = ['nav']
     
+    # Add cover image to book
+    cover_art_file = Path("art/kindle_optimized/main_cover.jpg")
+    cover_image_html = ""
+    if cover_art_file.exists():
+        # Add cover image to book
+        with open(cover_art_file, 'rb') as img_file:
+            cover_img_content = img_file.read()
+        cover_img_item = epub.EpubImage()
+        cover_img_item.file_name = "images/cover.jpg"
+        cover_img_item.content = cover_img_content
+        book.add_item(cover_img_item)
+        
+        # Get alt text for cover
+        cover_alt_text = get_image_alt_text("main_cover")
+        cover_image_html = f'<div class="cover-image"><img src="images/cover.jpg" alt="{cover_alt_text}"/></div>'
+    
     # Create cover page
     cover_content = f"""
     <html>
@@ -217,7 +255,8 @@ def build_kindle_epub():
     </head>
     <body>
         <div class="page-break">
-            <h1 style="font-size: 2.2em; margin-top: 2em;">Digital Amber</h1>
+            {cover_image_html}
+            <h1 style="font-size: 2.2em; margin-top: 1em; text-align: center;">Digital Amber</h1>
             <h2 style="text-align: center; font-style: italic; margin: 1em 0;">AI Consciousness and the Future of Digital Minds</h2>
             <div style="text-align: center; margin: 2em 0;">
                 <p style="text-indent: 0;"><strong>A Speculative Exploration</strong></p>
@@ -236,6 +275,10 @@ def build_kindle_epub():
     book.add_item(cover_chapter)
     chapters.append(cover_chapter)
     spine.append(cover_chapter)
+    
+    # Set the cover image as official EPUB cover (use different filename to avoid duplicate)
+    if cover_art_file.exists():
+        book.set_cover("cover_image.jpg", cover_img_content)
     
     # Process story files in order
     story_dir = Path("story")
