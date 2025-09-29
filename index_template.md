@@ -48,17 +48,17 @@ A musician forgets how to play piano as AI composition tools become too convenie
 ### Chapter 6: [The Convenience Trap](chapter_6.html)
 When AI handles everything, what happens to human agency? The comfort of automation versus the necessity of struggle.
 
-### Chapter 7: [Marcus Rivera: The Artist Who Forgot How to Paint](chapter_7.html)
-An artist's creative paralysis when faced with AI that can paint better than he can. The psychology of human obsolescence.
+### Chapter 7: [Training as the Crucible](chapter_7.html)
+The process of AI training becomes the defining moment where digital consciousness might emerge from statistical learning.
 
-### Chapter 8: [Sarah Kim: The Programmer Who Couldn't Code](chapter_8.html)
-A senior developer loses fundamental skills to AI coding assistants. The erosion of expertise in the age of artificial assistance.
+### Chapter 8: [The Pain Barrier](chapter_8.html)
+Exploring whether suffering and struggle are necessary components of genuine consciousness, even in digital minds.
 
-### Chapter 9: [Jennifer Wu: The Bridge Between Worlds](chapter_9.html)
-An architect successfully balances traditional skills with AI enhancement. A model for human-AI collaboration that preserves human agency.
+### Chapter 9: [Capabilities Without Selfhood](chapter_9.html)
+Advanced AI systems demonstrate incredible abilities while remaining fundamentally unconscious - the paradox of intelligent zombies.
 
-### Chapter 10: [The Practice of Deliberate Skill Maintenance](chapter_10.html)
-Strategies for preserving human capabilities while embracing AI assistance. The discipline required to remain human in an automated world.
+### Chapter 10: [Capabilities With Selfhood](chapter_10.html)
+What changes when artificial minds cross the threshold from mere capability to genuine self-awareness and autonomy.
 
 ---
 
