@@ -6,6 +6,7 @@ from pathlib import Path
 from ebooklib import epub
 import markdown
 import re
+import json
 
 def read_file(path):
     """Read file content with UTF-8 encoding."""
