@@ -138,7 +138,8 @@ def build_all_formats(version_type="patch", formats=None):
         "pages": "build_pages.py",
         "kindle": "build_kindle.py", 
         "epub": "build_epub.py",
-        "pdf": "build_pdf.py"
+        "pdf": "build_pdf.py",
+        "audio": "build_audio.py"
     }
     
     for format_name in formats:
@@ -219,7 +220,7 @@ def main():
     parser.add_argument('--version-type', choices=['major', 'minor', 'patch'], 
                        default='patch', help='Version bump type')
     parser.add_argument('--formats', nargs='+', 
-                       choices=['pages', 'kindle', 'epub', 'pdf'],
+                       choices=['pages', 'kindle', 'epub', 'pdf', 'audio'],
                        help='Formats to build (default: all)')
     parser.add_argument('--list', action='store_true', help='List available versions')
     

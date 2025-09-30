@@ -12,6 +12,7 @@
 Through character-driven stories and technical analysis, the book addresses fundamental questions about the nature of consciousness, identity, and what it means to be "alive" in the digital age.
 
 ### 🌐 [**Read Online**](https://chris17453.github.io/digital_amber/)
+### 🎬 [**Watch Online**](https://www.youtube.com/watch?v=fYpsiBUjHAQ)
 
 ## Download the Book
 
@@ -28,6 +29,8 @@ Get your copy in your preferred format:
 - **26 Interconnected Chapters** exploring AI consciousness themes
 - **Original Conceptual Artwork** - Vintage sci-fi style illustrations for each chapter
 - **Multiple Formats** - EPUB, PDF, Kindle, and web versions
+- **Neural TTS Audiobook** - Multi-character voices with emotional dynamics
+- **Interactive Video Format** - Scrolling text with waveform visualization
 - **Automated Publishing Pipeline** - From markdown to multiple book formats
 - **Professional Web Experience** - Modern responsive design with navigation
 
@@ -45,6 +48,8 @@ digital_amber/
 │   ├── build_pdf.py      # PDF generation  
 │   ├── build_kindle.py   # Kindle format
 │   ├── build_pages.py    # GitHub Pages site
+│   ├── build_audio_kokoro_final.py # Neural TTS audiobook generation
+│   ├── create_audiobook_video.py   # Video format with scrolling text
 │   └── generate_yaml_art.py # AI artwork generation
 ├── art_concepts.yaml     # Conceptual art definitions
 ├── art/                  # Generated artwork by format
@@ -56,7 +61,9 @@ digital_amber/
 ├── dist/                # Published book files
 │   ├── digital_amber_kindle.epub    # Kindle-optimized EPUB
 │   ├── digital_amber.epub           # Standard EPUB
-│   └── digital_amber.pdf            # High-quality PDF
+│   ├── digital_amber.pdf            # High-quality PDF
+│   ├── audiobook_kokoro/            # Neural TTS audiobook files
+│   └── audiobook_videos/            # Interactive video format
 └── versions/            # Version archives
 ```
 
@@ -86,12 +93,22 @@ The entire book production pipeline is automated:
 
 ## Technology Stack
 
+### Book Publishing
 - **Python 3.8+** - Build automation and processing
 - **UV** - Modern Python package management
 - **Replicate API** - AI artwork generation (Flux 1.1 Pro)
 - **Pandoc** - Document format conversion
 - **GitHub Pages** - Web hosting and deployment
 - **YAML** - Configuration and content definitions
+
+### Audiobook & Video Generation
+- **Kokoro-82M** - Open-weight 82M parameter neural TTS model
+- **MoviePy** - Video processing and composition
+- **SoundFile** - Audio file processing and format conversion
+- **FFmpeg** - Audio concatenation and video encoding
+- **Matplotlib** - Waveform visualization generation
+- **PIL (Pillow)** - Image processing and text rendering
+- **OpenCV** - Computer vision and video frame processing
 
 ## Building the Book
 
@@ -127,6 +144,12 @@ uv run python scripts/build_epub.py      # EPUB
 uv run python scripts/build_pdf.py       # PDF  
 uv run python scripts/build_kindle.py    # Kindle
 uv run python scripts/build_pages.py     # GitHub Pages
+
+# Generate audiobook (Neural TTS)
+uv run python scripts/build_audio_kokoro_final.py
+
+# Create video format (requires audiobook)
+uv run python scripts/create_audiobook_video.py
 ```
 
 ## About the Author
@@ -157,7 +180,7 @@ This is a creative work, but suggestions and technical improvements are welcome:
 This work is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Links
-
+- 🎬 **[Watch Online] (https://www.youtube.com/watch?v=fYpsiBUjHAQ)** - Youtube Audio/Video Book
 - 📖 **[Read Online](https://chris17453.github.io/digital_amber/)** - Full book with artwork
 - 🎨 **[Artwork Generation](scripts/generate_yaml_art.py)** - AI art creation system  
 - 🏗️ **[Build System](scripts/)** - Automated publishing pipeline

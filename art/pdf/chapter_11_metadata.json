@@ -1,18 +1,10 @@
 {
-  "chapter_key": "chapter_11",
-  "title": "The Economics of Cognitive Dependency",
-  "concept": "Corporate boardroom where executives review charts showing AI subscription costs vs human skill investment, making economic decisions.",
+  "chapter_title": "The Digital Genesis Classifications",
   "format": "pdf",
-  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Corporate boardroom where executives review charts showing AI subscription costs vs human skill investment, making economic decisions.\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: Limited color palette like classic book illustrations - warm amber tones, muted colors, vintage sci-fi poster aesthetic\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Standard composition\n\nVisual elements to include:\n- Corporate decision-making\n- Financial charts and graphs\n- Cost-benefit analysis\n- Executive boardroom\n- Economic strategy visualization\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
-  "generated_at": "2025-09-29T10:12:25.531534",
+  "prompt": "BOOK ILLUSTRATION ART STYLE: Traditional hand-drawn book illustration in the style of classic 1950s-60s science fiction novel covers. Pen and ink, watercolor, gouache painting style. NOT photographic, NOT photorealistic.\n\nCREATE THIS CONCEPT AS ART: Dynamic scene capturing the essence of this chapter's themes\n\nVISUAL STYLE REQUIREMENTS:\n- Classic book illustration art aesthetic (like Isaac Asimov novel covers)\n- Hand-drawn/painted look with elegant linework and crosshatching\n- Stylized, simplified forms - NOT photorealistic detail\n- Vintage sci-fi poster aesthetic\n- Limited color palette: Limited color palette like classic book illustrations - warm amber tones, muted colors, vintage sci-fi poster aesthetic\n- Subtle amber color accents in lighting and technology - used as artistic color choice, not dominant visual element\n\nCOMPOSITION: Portrait orientation, cinematic composition with dramatic lighting and depth\n\nVisual elements to include:\n- Abstract conceptual elements\n\nCRITICAL: This IS the concept visualized as art, NOT an illustration about a story. Make the abstract concept itself into visual art.\n\nArt style: Vintage book illustration, pen and ink, watercolor style, classic sci-fi novel cover art aesthetic.\n\nNO photorealism, NO literal scenes, NO modern digital effects.",
+  "generated_at": "2025-09-29T15:45:12.719385",
   "model": "black-forest-labs/flux-1.1-pro",
-  "image_url": "https://replicate.delivery/xezq/WI3WCzbEFFo8NdgLS7vIQ2qS8bV1UTO5U5REIyXDdDQyFhWF/tmpy6e7dnug.png",
+  "image_url": "https://replicate.delivery/xezq/2DKNC0TGPIZ5ClX3bhJpgUPReHpojXecp9V5cJIacJ6IPJaVA/tmpyr1ustj9.png",
   "aspect_ratio": "2:3",
-  "key_elements": [
-    "Corporate decision-making",
-    "Financial charts and graphs",
-    "Cost-benefit analysis",
-    "Executive boardroom",
-    "Economic strategy visualization"
-  ]
+  "output_format": "png"
 }

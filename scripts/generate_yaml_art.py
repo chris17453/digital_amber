@@ -196,12 +196,145 @@ def generate_art_from_yaml(format_type, force=False):
     
     return completed == total_concepts
 
+def generate_specific_concepts(concept_keys, format_type, force=False):
+    """Generate art for specific concepts only."""
+    
+    # Load concepts
+    concepts = load_art_concepts()
+    unified_theme = concepts['unified_theme']
+    
+    # Collect all concept types
+    all_concepts = {}
+    if 'chapters' in concepts:
+        all_concepts.update(concepts['chapters'])
+    if 'cover_art' in concepts:
+        all_concepts.update(concepts['cover_art'])
+    if 'external_art' in concepts:
+        all_concepts.update(concepts['external_art'])
+    
+    # Filter to requested concepts
+    target_concepts = {k: v for k, v in all_concepts.items() if k in concept_keys}
+    
+    if not target_concepts:
+        print(f"❌ No matching concepts found for: {concept_keys}")
+        return False
+    
+    # Set up Replicate client
+    replicate_token = os.getenv('REPLICATE_API_TOKEN')
+    if not replicate_token:
+        print("❌ No REPLICATE_API_TOKEN found in .env file")
+        return False
+    
+    client = replicate.Client(api_token=replicate_token)
+    
+    # Create output directory
+    art_dir = Path("art") / format_type
+    art_dir.mkdir(parents=True, exist_ok=True)
+    
+    completed = 0
+    
+    print(f"🎨 Generating art for {len(target_concepts)} specific concepts in {format_type} format...")
+    
+    for concept_key, concept_data in target_concepts.items():
+        title = concept_data['title']
+        print(f"\n📖 Processing {concept_key}: {title}")
+        
+        # Check if art already exists
+        art_file = art_dir / f"{concept_key}.png"
+        if art_file.exists() and not force:
+            print(f"🎨 Art already exists for {concept_key}")
+            completed += 1
+            continue
+        
+        # Create prompt from YAML concept only
+        prompt = create_prompt_from_concept(concept_data, format_type, unified_theme)
+        
+        print(f"🎨 Generating art for '{title}'...")
+        print(f"📝 Concept: {concept_data['concept'][:100]}...")
+        
+        try:
+            # Use Flux 1.1 Pro model
+            model = "black-forest-labs/flux-1.1-pro"
+            
+            # Base parameters
+            input_params = {
+                "prompt": prompt,
+                "aspect_ratio": "1:1",
+                "output_format": "png",
+                "output_quality": 90,
+                "safety_tolerance": 2,
+                "prompt_upsampling": True
+            }
+            
+            # Adjust aspect ratio based on format
+            if format_type == "kindle":
+                input_params["aspect_ratio"] = "2:3"  # Portrait for e-readers
+            elif format_type == "pages":
+                input_params["aspect_ratio"] = "16:9"  # Landscape for web
+            elif format_type == "pdf":
+                input_params["aspect_ratio"] = "2:3"  # Portrait for print
+            elif format_type == "epub":
+                input_params["aspect_ratio"] = "4:5"  # Tall portrait for ebooks
+            
+            print(f"⏳ Generating image with {model}...")
+            output = client.run(model, input=input_params)
+            
+            if output:
+                # Handle single output
+                image_url = output if isinstance(output, str) else str(output)
+                
+                # Download the image
+                import requests
+                response = requests.get(image_url)
+                if response.status_code == 200:
+                    with open(art_file, 'wb') as f:
+                        f.write(response.content)
+                    
+                    print(f"✅ Art saved to {art_file}")
+                    
+                    # Save metadata
+                    metadata_file = art_dir / f"{concept_key}_metadata.json"
+                    metadata = {
+                        "concept_key": concept_key,
+                        "title": title,
+                        "concept": concept_data['concept'],
+                        "format": format_type,
+                        "prompt": prompt,
+                        "generated_at": datetime.now().isoformat(),
+                        "model": model,
+                        "image_url": str(image_url),
+                        "aspect_ratio": input_params['aspect_ratio'],
+                        "key_elements": concept_data.get('key_elements', [])
+                    }
+                    
+                    with open(metadata_file, 'w') as f:
+                        json.dump(metadata, f, indent=2)
+                    
+                    completed += 1
+                else:
+                    print(f"❌ Failed to download image: {response.status_code}")
+            else:
+                print("❌ No output from model")
+                
+        except Exception as e:
+            print(f"❌ Error generating art: {str(e)}")
+        
+        # Rate limiting
+        time.sleep(2)
+    
+    print(f"\n✅ Specific concept generation completed!")
+    print(f"📊 Successfully generated {completed}/{len(target_concepts)} images")
+    
+    return completed == len(target_concepts)
+
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(description="Generate art from YAML concepts only")
     parser.add_argument('--formats', nargs='+', 
                        choices=['kindle', 'epub', 'pdf', 'pages'],
                        help='Formats to generate art for (default: pages)')
+    parser.add_argument('--concepts', nargs='+',
+                       help='Specific concept keys to generate (e.g., chapter_9 chapter_10)')
     parser.add_argument('--force', action='store_true', 
                        help='Regenerate art even if it already exists')
     
@@ -209,11 +342,20 @@ def main():
     
     formats = args.formats or ["pages"]
     
-    for format_type in formats:
-        print(f"\n🎨 Generating {format_type} format art from YAML concepts...")
-        success = generate_art_from_yaml(format_type, args.force)
-        if not success:
-            print(f"❌ Failed to generate all {format_type} art")
+    if args.concepts:
+        # Generate specific concepts
+        for format_type in formats:
+            print(f"\n🎨 Generating {format_type} format art for specific concepts...")
+            success = generate_specific_concepts(args.concepts, format_type, args.force)
+            if not success:
+                print(f"❌ Failed to generate all {format_type} art")
+    else:
+        # Generate all concepts
+        for format_type in formats:
+            print(f"\n🎨 Generating {format_type} format art from YAML concepts...")
+            success = generate_art_from_yaml(format_type, args.force)
+            if not success:
+                print(f"❌ Failed to generate all {format_type} art")
 
 if __name__ == "__main__":
     main()

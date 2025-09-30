@@ -7,6 +7,9 @@ wheels/
 NOTES/
 *.egg-info
 .env
-
+cache/
+*.mp4
+*.wav
+kokoro/
 # Virtual environments
 .venv
